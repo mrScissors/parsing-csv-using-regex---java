@@ -8,11 +8,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import com.opencsv.CSVReader;
 
 
 public class readCsvRegex {
-	
+	final Logger LOGGER = Logger.getLogger(readCsvRegex.class);
 	public List<rsClass> readCsv(String url) {
 		Set<rsClass> rs = new HashSet<rsClass>();
 		List<rsClass> rsList = new ArrayList<rsClass>();
@@ -20,6 +22,9 @@ public class readCsvRegex {
 		try {
 			
 			FileReader filereader = new FileReader(url);
+			
+			LOGGER.info("File read successful! \n \n");
+			
 			BufferedReader br = new BufferedReader(filereader);
 			String[] nextRecord;
 			String line;
@@ -45,13 +50,14 @@ public class readCsvRegex {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// System.out.println(rs);
 		long endTime = System.nanoTime();
-		System.out.println("Regex time ============>" + (endTime - startTime)/1000000);
+		LOGGER.info("Regex time ============>" + (endTime - startTime)/1000000 + "\n \n");
 		rsList.addAll(rs);
 		return rsList;
 	}

@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;  
 
 import com.opencsv.CSVReader;
@@ -15,10 +18,12 @@ import com.opencsv.CSVReader;
 public class read_csv {
 
 	public List<rsClass> readCsv(String url) {
+		final Logger LOGGER = Logger.getLogger(readCsvRegex.class);
 		List<rsClass> rs = new ArrayList<rsClass>();
 		long startTime = System.nanoTime();
 		try {
 			FileInputStream filereaderStream = new  FileInputStream(url);
+			LOGGER.info("File read successful! \n \n");
 			InputStreamReader isr = new InputStreamReader(filereaderStream, 
                     StandardCharsets.UTF_8);
 			CSVReader csvReader = new CSVReader(isr);
@@ -50,7 +55,7 @@ public class read_csv {
 		}
 		// System.out.println(rs);
 		long endTime = System.nanoTime();
-		System.out.println( "OpenCSV time ============>" + (endTime - startTime)/1000000);
+		LOGGER.info( "OpenCSV time ============>" + (endTime - startTime)/1000000 + "\n \n");
 		return rs;
 	}
 }
