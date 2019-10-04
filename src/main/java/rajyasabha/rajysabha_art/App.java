@@ -24,26 +24,27 @@ public class App
     	String url = "/home/test08/Downloads/rajyaSabhaData.csv";
         
         readCsvRegex readcsvRegex = new readCsvRegex();
+        read_csv readcsv = new read_csv();
         
         List<rsClass> rs = new ArrayList<rsClass>();
-        rs = readcsvRegex.readCsv(url);
-//        rs = readcsv.readCsv(url);
-//        for(rsClass name : rs)
-//        {
-//            System.out.println(name.ministry + "\t" + name.question_no);
-//        }
-//        System.out.println(rs);
-        
-        Map<String, Integer> hm = new HashMap<String, Integer>(); 
-        for (rsClass i : rs.subList(1, rs.size())) { 
-            Integer j = hm.get(i.ministry); 
-            hm.put(i.ministry, (j == null) ? 1 : j + 1); 
+//        rs = readcsvRegex.readCsv(url);
+        rs = readcsv.readCsv(url);
+        for(rsClass name : rs)
+        {
+            System.out.println(name.id + "\t" + name.ministry);
         }
-        
-        for (Map.Entry<String, Integer> val : hm.entrySet()) { 
-            System.out.println("Ministry " + val.getKey() + " "
-                               + "asked "
-                               + val.getValue() + " questions"); 
-        } 
+//        System.out.println(rs);
+//        
+//        Map<String, Integer> hm = new HashMap<String, Integer>(); 
+//        for (rsClass i : rs.subList(1, rs.size())) { 
+//            Integer j = hm.get(i.ministry); 
+//            hm.put(i.ministry, (j == null) ? 1 : j + 1); 
+//        }
+//        
+//        for (Map.Entry<String, Integer> val : hm.entrySet()) { 
+//            System.out.println("Ministry " + val.getKey() + " "
+//                               + "asked "
+//                               + val.getValue() + " questions"); 
+//        } 
     }
 }
