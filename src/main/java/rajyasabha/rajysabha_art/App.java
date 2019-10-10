@@ -39,12 +39,17 @@ public class App
 //            System.out.println(name.id + "\t" + name.ministry);
 //        }
 //        System.out.println(rs);
-//        
+//      
+//        rs = rs.subList(1, rs.size());
+//        System.out.println(rs.get(0).id);
+//          rs.remove(0);	
+//        System.out.println(rs.get(0).id);
         Map<String, Integer> hm = new HashMap<String, Integer>(); 
-        for (rsClass i : rs.subList(1, rs.size())) { 
+        for (rsClass i : rs) { 
             Integer j = hm.get(i.ministry); 
             hm.put(i.ministry, (j == null) ? 1 : j + 1); 
         }
+//        System.out.println("size------------->" + hm.size());
         
         Map<String, Integer> sortedMapAsc = sortByComparator(hm, true);
 

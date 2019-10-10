@@ -34,7 +34,12 @@ class AppTest {
 		String s = "animal, dog, \"cat, lion\"";
 		String[] sArray;
 		sArray = s.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);		
-		String [] expected = {"animal", " dog", " \"cat, lion\""};
+		for (int i = 0; i < sArray.length; i++) {
+			sArray[i] = sArray[i].trim();
+			sArray[i] = sArray[i].replaceAll("\\s+", " ");
+		}
+		System.out.println(sArray[0] + "," + sArray[1] + "," + sArray[2]);
+		String [] expected = {"animal", "dog", "\"cat, lion\""};
         assertArrayEquals(expected, sArray);
 	}
 

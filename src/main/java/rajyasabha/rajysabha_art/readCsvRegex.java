@@ -31,17 +31,50 @@ public class readCsvRegex {
 			while ((line = br.readLine()) != null) {
 				nextRecord = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 				rsClass rsobj = new rsClass();
-
-				rsobj.id = nextRecord[0].replaceAll("^\"|\"$", "");
-				// System.out.println(nextRecord[7]);
-				rsobj.answer_date = nextRecord[1].replaceAll("^\"|\"$", "");
-				rsobj.ministry = nextRecord[2].replaceAll("^\"|\"$", "");
-				rsobj.question_type = nextRecord[3].replaceAll("^\"|\"$", "");
-				rsobj.question_no = nextRecord[4].replaceAll("^\"|\"$", "");
-				rsobj.question_by = nextRecord[5].replaceAll("^\"|\"$", "");
-				rsobj.question_title = nextRecord[6].replaceAll("^\"|\"$", "");
-				rsobj.question_description = nextRecord[7].replaceAll("^\"|\"$", "");
-				rsobj.answer = nextRecord[8].replaceAll("^\"|\"$", "");
+				nextRecord[0] = nextRecord[0].replaceAll("^\"|\"$", "");
+				nextRecord[0] = nextRecord[0].trim();
+				nextRecord[0] = nextRecord[0].replaceAll("\\s+", " ");
+				rsobj.id = nextRecord[0];
+				
+				nextRecord[1] = nextRecord[1].replaceAll("^\"|\"$", "");
+				nextRecord[1] = nextRecord[1].trim();
+				nextRecord[1] = nextRecord[1].replaceAll("\\s+", " ");
+				rsobj.answer_date = nextRecord[1];
+				
+				nextRecord[2] = nextRecord[2].replaceAll("^\"|\"$", "");
+				nextRecord[2] = nextRecord[2].trim();
+				nextRecord[2] = nextRecord[2].replaceAll("\\s+", " ");
+				rsobj.ministry = nextRecord[2];
+				
+				nextRecord[3] = nextRecord[3].replaceAll("^\"|\"$", "");
+				nextRecord[3] = nextRecord[3].trim();
+				nextRecord[3] = nextRecord[3].replaceAll("\\s+", " ");
+				rsobj.question_type = nextRecord[3];
+				
+				nextRecord[4] = nextRecord[4].replaceAll("^\"|\"$", "");
+				nextRecord[4] = nextRecord[4].trim();
+				nextRecord[4] = nextRecord[4].replaceAll("\\s+", " ");
+				rsobj.question_no = nextRecord[4];
+				
+				nextRecord[5] = nextRecord[5].replaceAll("^\"|\"$", "");
+				nextRecord[5] = nextRecord[5].trim();
+				nextRecord[5] = nextRecord[5].replaceAll("\\s+", " ");
+				rsobj.question_by = nextRecord[5];
+				
+				nextRecord[6] = nextRecord[6].replaceAll("^\"|\"$", "");
+				nextRecord[6] = nextRecord[6].trim();
+				nextRecord[6] = nextRecord[6].replaceAll("\\s+", " ");
+				rsobj.question_title = nextRecord[6];
+				
+				nextRecord[7] = nextRecord[7].replaceAll("^\"|\"$", "");
+				nextRecord[7] = nextRecord[7].trim();
+				nextRecord[7] = nextRecord[7].replaceAll("\\s+", " ");
+				rsobj.question_description = nextRecord[7];
+				
+				nextRecord[8] = nextRecord[8].replaceAll("^\"|\"$", "");
+				nextRecord[8] = nextRecord[8].trim();
+				nextRecord[8] = nextRecord[8].replaceAll("\\s+", " ");
+				rsobj.answer = nextRecord[8];
 
 				rs.add(rsobj);
 				// System.out.println(nextRecord[1]);
